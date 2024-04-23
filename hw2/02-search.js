@@ -3,14 +3,17 @@
 document.getElementById("searchButton").addEventListener("click", handleClick);
 const inputElem = document.getElementById("userInput");
 
+// function to get the element I'm modifying most in this exercise.
 const getResElem = function getResultElement() {
     return document.getElementById("searchResult");
 };
 
+// simple quick empty check
 const checkEmpty = function checkInputEmpty(value) {
     return value.length === 0;
 };
 
+// If the search was empty, let em know.
 const searchEmpty = function noDataToSearch() {
     const resultElem = getResElem();
     const newP = document.createElement("p");
@@ -22,12 +25,19 @@ const searchEmpty = function noDataToSearch() {
     return;
 };
 
+// Quick filter from the data.js file to find all the characters I want with
+// names that just include (as a substring) the search val
 const getChars = function getCharacterData(searchValue) {
     return characters.filter((character) =>
         character.name.toLowerCase().includes(searchValue.toLowerCase())
     );
 };
 
+// Create new cards for every character provided. Doing this by creating a new
+// 'floating' element then appending them in the correct order before
+// conducting work. Using regex to do the replace for the mark html5 element
+// See my 02-search.html for the style mod for the mark element to make it
+// stand out more.
 const characterCards = function buildCharacterCards(relevantChars, searchVal) {
     const resultElem = getResElem();
     const regex = new RegExp(`${searchVal}`, "gi");
@@ -59,6 +69,7 @@ const characterCards = function buildCharacterCards(relevantChars, searchVal) {
     return;
 };
 
+// Lets handle some clicking :)
 function handleClick() {
     const searchVal = inputElem.value;
     if (checkEmpty(searchVal)) {

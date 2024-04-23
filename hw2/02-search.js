@@ -24,12 +24,13 @@ const searchEmpty = function noDataToSearch() {
 
 const getChars = function getCharacterData(searchValue) {
     return characters.filter((character) =>
-        character.name.toLowerCase().includes(searchValue)
+        character.name.toLowerCase().includes(searchValue.toLowerCase())
     );
 };
 
-const characterCards = function buildCharacterCards(relevantChars) {
+const characterCards = function buildCharacterCards(relevantChars, searchVal) {
     const resultElem = getResElem();
+    const regex = new RegExp(`${searchVal}`, "gi");
     for (const character of relevantChars) {
         const cleanCards = document.createElement("div");
         const cardBody = document.createElement("div");
@@ -43,6 +44,12 @@ const characterCards = function buildCharacterCards(relevantChars) {
         cardBody.append(cardTitleH5);
         cardTitleH5.className = "card-title fs-5";
         cardTitleH5.textContent = character.name;
+        if (regex.test(cardTitleH5.innerHTML)) {
+            cardTitleH5.innerHTML = cardTitleH5.innerHTML.replace(
+                regex,
+                `<mark>${searchVal}</mark>`
+            );
+        }
 
         cardBody.append(cardTextP);
         cardTextP.textContent = `Birth Year: ${character.birth_year}`;
@@ -53,14 +60,14 @@ const characterCards = function buildCharacterCards(relevantChars) {
 };
 
 function handleClick() {
-    const elemValue = inputElem.value.toLowerCase();
-    if (checkEmpty(elemValue)) {
+    const searchVal = inputElem.value;
+    if (checkEmpty(searchVal)) {
         getResElem().innerHTML = "";
         searchEmpty();
     } else {
         getResElem().innerHTML = "";
-        const relevantChars = getChars(elemValue);
-        characterCards(relevantChars);
+        const relevantChars = getChars(searchVal);
+        characterCards(relevantChars, searchVal);
     }
 
     return;

@@ -14,7 +14,7 @@
     <body class="bg-dark">
         <main class="col-6 bg-light container mt-5 rounded shadow ps-3">
             <h1 class="text-center fw-bold pt-3 pb-2">Exercise 05 - Form</h1>
-            <form class="py-3 w-100">
+            <form id="dataForm" class="py-3 w-100">
                 <label class="w-100 fw-bold pb-1 rounded-3" for="fullName"
                     >Full Name:
                 </label>
@@ -51,8 +51,8 @@
                         <option value="" hidden selected>
                             Choose an Option
                         </option>
-                        <option value="0">Registered</option>
-                        <option value="1">Withdrawn</option>
+                        <option value="Registered">Registered</option>
+                        <option value="Withdrawn">Withdrawn</option>
                     </select>
                     <div class="fw-bold pb-1 pt-3 rounded-3">
                         Have you taken any of the following courses?
@@ -91,6 +91,7 @@
                         for="anyElse"
                         >Anything else?
                     </label>
+                    <div>
                         <textarea
                             class="w-100 form-control"
                             id="anyElse"
@@ -98,20 +99,20 @@
                             rows="4"
                         ></textarea>
                     </div>
-                    <div class="w-100 d-flex justify-content-center py-4">
-                        <input
-                            id="actionButton"
-                            class="w-100 btn btn-primary me-2"
-                            type="button"
-                            value="Start"
-                        />
-                        <input
-                            id="actionButton"
-                            class="w-100 btn btn-secondary"
-                            type="button"
-                            value="Start"
-                        />
-                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-center py-4">
+                    <input
+                        id="submitButton"
+                        class="w-100 btn btn-primary me-2"
+                        value="Submit"
+                        type="submit"
+                    />
+                    <input
+                        id="resetButton"
+                        class="w-100 btn btn-secondary"
+                        value="Reset"
+                        type="reset"
+                    />
                 </div>
             </form>
         </main>

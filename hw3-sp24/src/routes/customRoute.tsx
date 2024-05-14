@@ -1,3 +1,10 @@
+import NavBar from "../components/navbar";
+
 export default function CustomRoute() {
-  return <nav>Custom Route</nav>;
+    return (
+        <>
+            <NavBar></NavBar>
+            <nav>Custom Route</nav>
+        </>
+    );
 }

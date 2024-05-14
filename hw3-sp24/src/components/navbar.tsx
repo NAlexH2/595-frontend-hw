@@ -6,13 +6,13 @@ export default function NavBar() {
                     <a href={`/`}>Home</a>
                 </li>
                 <li>
-                    <a href={`/list`}>Info</a>
+                    <a href={`/list`}>List</a>
                 </li>
                 <li>
-                    <a href={`/population`}>Charts</a>
+                    <a href={`/population`}>Population</a>
                 </li>
                 <li>
-                    <a href={`/customroute`}>Contact</a>
+                    <a href={`/customroute`}>Custom Route</a>
                 </li>
             </ul>
         </nav>

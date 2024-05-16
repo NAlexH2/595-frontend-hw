@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>02 - Search</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <script defer src="02-data.js"></script>
-    <script defer src="02-search.js"></script>
-  </head>
-  <body>
-    <main>
-      <h1>Exercise 02 - Search</h1>
-      <div>
-        <label for="userInput">Search: </label>
-        <input type="text" id="userInput" />
-        <input type="button" value="Search Character: " />
-      </div>
-    </main>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>02 - Search</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        />
+        <script src="02-data.js"></script>
+        <style>
+            mark {
+                background-color: yellow; /* Change this to the desired highlight color */
+            }
+        </style>
+    </head>
+    <body class="bg-dark">
+        <main class="bg-light container col col-9 my-5 rounded-3">
+            <h1 class="d-flex justify-content-center pt-3 col">
+                Exercise 02 - Search
+            </h1>
+            <div class="d-flex justify-content-center py-3">
+                <div>
+                    <label for="userInput" class="fs-5 pe-1" hidden
+                        >Enter a Starwars character name</label
+                    >
+                    <input
+                        id="userInput"
+                        class="rounded-1 border-1 py-1 ps-2"
+                        type="text"
+                    />
+                    <input
+                        id="searchButton"
+                        class="btn btn-primary"
+                        type="button"
+                        value="Search"
+                    />
+                </div>
+            </div>
+            <div
+                id="searchResult"
+                class="d-flex row justify-content-center py-3"
+            ></div>
+        </main>
+        <script src="02-search.js"></script>
+    </body>
 </html>

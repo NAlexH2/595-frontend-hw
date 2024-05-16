@@ -1,3 +1,10 @@
+import NavBar from "../components/navbar";
+
 export default function List() {
-  return <nav>List</nav>;
+    return (
+        <>
+            <NavBar></NavBar>
+            <nav>List</nav>
+        </>
+    );
 }

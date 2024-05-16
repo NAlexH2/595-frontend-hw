@@ -1,20 +1,15 @@
 export default function NavBar() {
-  return (
-    <nav>
-      <ul>
-        <li>
-          <a href={`/`}>Home</a>
-        </li>
-        <li>
-          <a href={`/`}>Info</a>
-        </li>
-        <li>
-          <a href={`/charts`}>Charts</a>
-        </li>
-        <li>
-          <a href={`/contact`}>Contact</a>
-        </li>
-      </ul>
-    </nav>
-  );
+    return (
+        <nav className="bg-dark py-3">
+            <div className="container">
+                <a href={`/`}>Home</a>
+
+                <a href={`/list`}>List</a>
+
+                <a href={`/population`}>Population</a>
+
+                <a href={`/customroute`}>Custom Route</a>
+            </div>
+        </nav>
+    );
 }

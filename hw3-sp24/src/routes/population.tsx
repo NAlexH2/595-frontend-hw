@@ -1,3 +1,10 @@
+import NavBar from "../components/navbar";
+
 export default function Population() {
-  return <nav>Population</nav>;
+    return (
+        <>
+            <NavBar></NavBar>
+            <nav>Population</nav>
+        </>
+    );
 }

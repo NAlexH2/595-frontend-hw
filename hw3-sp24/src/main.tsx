@@ -7,6 +7,7 @@ import Home from "./routes/home";
 import List from "./routes/list";
 import Population from "./routes/population";
 import CustomRoute from "./routes/customRoute";
+import "bootstrap/dist/css/bootstrap.css";
 
 const router = createBrowserRouter([
     {

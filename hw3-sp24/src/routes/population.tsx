@@ -1,10 +1,11 @@
 import NavBar from "../components/navbar";
 
 export default function Population() {
-    return (
-        <>
-            <NavBar></NavBar>
-            <nav>Population</nav>
-        </>
-    );
+  const currentLoc = window.location.href;
+  return (
+    <>
+      <NavBar title={currentLoc}></NavBar>
+      <nav>Population</nav>
+    </>
+  );
 }

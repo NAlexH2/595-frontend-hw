@@ -1,10 +1,11 @@
 import NavBar from "../components/navbar";
 
 export default function CustomRoute() {
-    return (
-        <>
-            <NavBar></NavBar>
-            <nav>Custom Route</nav>
-        </>
-    );
+  const currentLoc = window.location.href;
+  return (
+    <>
+      <NavBar title={currentLoc}></NavBar>
+      <nav>Custom Route</nav>
+    </>
+  );
 }

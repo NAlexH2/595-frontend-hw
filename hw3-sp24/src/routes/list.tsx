@@ -19,7 +19,11 @@ function buildCards(response: AxiosResponse): Array<ReactNode> {
             <div className="flex items-center justify-center pb-1">
               <img
                 src={item.flag_png}
-                alt={item.flag_alt ? item.flag_alt : "No alt-text available"}
+                alt={
+                  item.flag_alt
+                    ? item.flag_alt
+                    : "No alt-text for this flag is available."
+                }
               />
             </div>
             <h1 className="font-bold text-lg">{item.name}</h1>

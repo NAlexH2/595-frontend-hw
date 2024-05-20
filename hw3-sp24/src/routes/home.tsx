@@ -1,7 +1,35 @@
+import { useEffect, useState, useRef } from "react";
+import axios, { AxiosResponse } from "axios";
 import NavBar from "../components/navbar";
+
+const countryAPIURL: string =
+  "https://cs464p564-frontend-api.vercel.app/api/countries";
+
+function getCountryArray(response: AxiosResponse): Array<string> {
+  const countryList: string[] = [];
+  for (const item of response.data) {
+    countryList.push(item["name"]);
+  }
+  console.log(response.data);
+  countryList.sort();
+  return countryList;
+}
 
 export default function Home() {
   const currentLoc = window.location.href;
+  const hasFetched = useRef(false);
+  const [countryList, setCountryList] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    if (!hasFetched.current) {
+      hasFetched.current = true;
+      axios
+        .get(countryAPIURL)
+        .then(response => setCountryList(getCountryArray(response)))
+        .catch(error => console.error(error.message));
+    }
+  }, []);
+
   return (
     <>
       <NavBar title={currentLoc}></NavBar>
@@ -15,7 +43,7 @@ export default function Home() {
             <section className="row-start-2 text-yellow-50 font-semibold text-xl">
               <p>
                 This website is designed to provide an example of what it might
-                look like to have a website that accesses a country api, and
+                look like to have a website that accesses a country API, and
                 display information about a select number of countries. 13 is
                 the magic number for this example!
               </p>
@@ -29,19 +57,9 @@ export default function Home() {
                 to find while exploring the site:{" "}
               </p>
               <ul>
-                <li>Argentina</li>
-                <li>Bolivia</li>
-                <li>Brazil</li>
-                <li>Chile</li>
-                <li>Colombia</li>
-                <li>Ecuador</li>
-                <li>Guyana</li>
-                <li>Paraguay</li>
-                <li>Peru</li>
-                <li>Suriname</li>
-                <li>Uruguay</li>
-                <li>Venezuela</li>
-                <li>French Guiana</li>
+                {countryList.map((country, index) => (
+                  <li key={index}>{country}</li>
+                ))}
               </ul>
             </section>
           </div>
